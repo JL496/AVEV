@@ -123,11 +123,14 @@ def main():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--disable-gpu") # Extra safety for cloud workers
     chrome_options.add_argument("--remote-allow-origins=*")
+
+    chrome_options.binary_location = "/usr/bin/chromium"
+
     prefs = {"download.default_directory": download_dir}
     chrome_options.add_experimental_option("prefs", prefs)
 
     print(f"Job started for file: {target_file_name}")
-    service = Service(ChromeDriverManager().install())
+    service = Service("/usr/bin/chromedriver")
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
     try:
