@@ -1,0 +1,5 @@
+pandas
+numpy
+selenium
+webdriver-manager
+google-cloud-storage
