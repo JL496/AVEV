@@ -16,7 +16,7 @@ from google.cloud import storage
 
 # --- CONFIGURATION ---
 # Replace with your GCS Bucket Name (e.g., 'my-election-data-bucket')
-BUCKET_NAME = "demsiasp-avev/inbox/20260602_primary/statewide"
+BUCKET_NAME = "demsiasp-avev"
 
 
 def clean_csv_data(file_path):
@@ -91,11 +91,14 @@ def upload_to_bucket(file_path, destination_blob_name):
     Uploads a file to a GCS bucket using Application Default Credentials (ADC).
     """
     print(f"Uploading to GCS Bucket: {BUCKET_NAME}...")
+    folder_prefix = "inbox/20260602_primary/statewide"
+    full_blob_name = f"{folder_prefix}/{destination_blob_name}"
+
     try:
         # Implicitly uses the Service Account provided by your orchestration platform
         storage_client = storage.Client()
         bucket = storage_client.bucket(BUCKET_NAME)
-        blob = bucket.blob(destination_blob_name)
+        blob = bucket.blob(full_blob_name)
 
         blob.upload_from_filename(file_path)
         print(f"Upload Successful! gs://{BUCKET_NAME}/{destination_blob_name}")
