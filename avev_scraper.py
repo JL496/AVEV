@@ -177,6 +177,7 @@ def main():
             print(f"Error: {target_file_name} was not found or download timed out.")
 
     except Exception as e:
+        print(f"Selenium Failure Type: {type(e).__name__}")
         print(f"Process failed: {e}")
     finally:
         driver.quit()
