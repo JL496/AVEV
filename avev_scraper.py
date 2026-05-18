@@ -148,9 +148,14 @@ def main():
         print("2")
 
         # Locate and Select File
-        file_xpath = f"//button[contains(., '{target_file_name}')] | //span[contains(., '{target_file_name}')]"
-        file_element = wait.until(EC.element_to_be_clickable((By.XPATH, file_xpath)))
-        file_element.click()
+        file_xpath = f"//span[@title='{target_file_name}'] | //span[text()='{target_file_name}']"
+        #file_xpath = f"//button[contains(., '{target_file_name}')] | //span[contains(., '{target_file_name}')]"
+        file_element = wait.until(EC.presence_of_element_located((By.XPATH, file_xpath)))
+        #file_element = wait.until(EC.element_to_be_clickable((By.XPATH, file_xpath)))
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", file_element)
+        time.sleep(2)
+        #file_element.click()
+        driver.execute_script("arguments[0].click();", file_element)
 
         print("File Selected")
 
