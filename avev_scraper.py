@@ -141,7 +141,7 @@ def main():
         url = "https://sosia.sharepoint.com/:f:/s/ElectionsFileSharing/IgAb7hMCU-O5Q51fvBH20ujTAXz7ckSLGMBcoVy4Suxg-YA?e=cMK19p"
         driver.get(url)
 
-        wait = WebDriverWait(driver, 45)
+        wait = WebDriverWait(driver, 60)
 
         # Locate and Select File
         file_xpath = f"//button[contains(., '{target_file_name}')] | //span[contains(., '{target_file_name}')]"
