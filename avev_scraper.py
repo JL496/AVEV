@@ -141,7 +141,7 @@ def main():
         url = "https://sosia.sharepoint.com/:f:/s/ElectionsFileSharing/IgAb7hMCU-O5Q51fvBH20ujTAXz7ckSLGMBcoVy4Suxg-YA?e=cMK19p"
         driver.get(url)
 
-        wait = WebDriverWait(driver, 60)
+        wait = WebDriverWait(driver, 90)
 
         # Locate and Select File
         file_xpath = f"//button[contains(., '{target_file_name}')] | //span[contains(., '{target_file_name}')]"
@@ -157,7 +157,7 @@ def main():
         print("Download started...")
 
         # 3. Wait for download to finish in /tmp
-        timeout = 60
+        timeout = 90
         while not os.path.exists(full_file_path) and timeout > 0:
             time.sleep(1)
             timeout -= 1
