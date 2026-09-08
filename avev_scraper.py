@@ -152,8 +152,8 @@ def main():
 
         try:
             folder_xpath = f"//*[contains(text(), 'ABS_Statewide General 11-3-2026')]"
-        	folder_element = wait.until(EC.element_to_be_clickable((By.XPATH, folder_xpath)))
-            driver.execute_script("arguments[0].click();",folder_element)
+            folder_element = wait.until(EC.element_to_be_clickable((By.XPATH, folder_xpath)))
+            driver.execute_script("arguments[0].click();", folder_element)
         except Exception as e:
             print("Folder not found")
 
