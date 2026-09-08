@@ -91,7 +91,7 @@ def upload_to_bucket(file_path, destination_blob_name):
     Uploads a file to a GCS bucket using Application Default Credentials (ADC).
     """
     print(f"Uploading to GCS Bucket: {BUCKET_NAME}...")
-    folder_prefix = "inbox/20260602_primary/statewide"
+    folder_prefix = "inbox/20261103_general/statewide"
     full_blob_name = f"{folder_prefix}/{destination_blob_name}"
 
     try:
@@ -138,7 +138,7 @@ def main():
 
     try:
         # SharePoint Sharing Link (Bypasses Login Prompt)
-        url = "https://sosia.sharepoint.com/:f:/s/ElectionsFileSharing/IgAb7hMCU-O5Q51fvBH20ujTAXz7ckSLGMBcoVy4Suxg-YA?e=cMK19p"
+        url = "https://sosia.sharepoint.com/:f:/s/ElectionsFileSharing/IgDSUv0SM8P3QrBHaBgO0n5LAe4LqJE-02UdkDqdop3HFPI?e=WII2ec"
         driver.get(url)
 
         print("Navigated to SharePoint Link")
