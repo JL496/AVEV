@@ -149,6 +149,15 @@ def main():
         print("Navigated to SharePoint Link")
 
         wait = WebDriverWait(driver, 60)
+        
+        try:
+        		folder_xpath = f"//*[contains(text(), 'ABS_Statewide General 11-3-2026')]"
+        		folder_element = wait.until(EC.element_to_be_clickable((By.XPATH, folder_xpath)))
+		driver.execute_script("arguments[0].click();", folder_element)
+        except Exception as e:
+        		print(
+			"Could not find folder"
+		)
 
         # --- NEW LOGIC: SORT BY MODIFIED ---
         print("Sorting 'Modified' column to 'Newer to older'...")
