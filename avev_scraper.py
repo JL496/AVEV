@@ -51,9 +51,13 @@ def clean_csv_data(file_path):
     def fix_row(row):
         row_list = row.tolist()
 
+        aj_val = str(row_list[35]).strip().split(".")[0]
+        if aj_val in ["0", "1"]:
+            return row
+
         # AJ is Index 35. We look for a binary '1' or '0' starting from AK (36)
         # Checking up to 5 columns of potential shift (index 41)
-        for i in range(36, min(len(row_list), 42)):
+        for i in range(36, min(len(row_list), 47)):
             val = str(row_list[i]).strip().split(".")[0]
 
             if val in ["0", "1"]:
